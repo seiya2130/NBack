@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { StartButtonComponent } from './start-button.component';
+import { ForwardButtonComponent } from './forward-button.component';
 
-describe('StartButtonComponent', () => {
-  let component: StartButtonComponent;
-  let fixture: ComponentFixture<StartButtonComponent>;
+describe('ForwardButtonComponent', () => {
+  let component: ForwardButtonComponent;
+  let fixture: ComponentFixture<ForwardButtonComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ StartButtonComponent ]
+      declarations: [ ForwardButtonComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(StartButtonComponent);
+    fixture = TestBed.createComponent(ForwardButtonComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
