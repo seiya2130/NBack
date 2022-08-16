@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class SettingPageComponent implements OnInit {
 
   constructor() { }
-
+  forwardButtonText: string = "スタート";
   ngOnInit(): void {
   }
 
