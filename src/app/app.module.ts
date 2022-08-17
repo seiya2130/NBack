@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { SettingPageComponent } from './page/setting-page/setting-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ForwardButtonComponent } from './ui/gui/button/forward-button/forward-button.component';
+import { MaterialModule } from './material.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ForwardButtonComponent } from './ui/gui/button/forward-button/forward-b
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
