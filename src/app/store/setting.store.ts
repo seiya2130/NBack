@@ -13,4 +13,5 @@ export class SettingStore {
     isColor: false,
     isShape: false
   });
+
 }
