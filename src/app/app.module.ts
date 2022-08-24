@@ -9,6 +9,7 @@ import { ForwardButtonComponent } from './ui/gui/button/forward-button/forward-b
 import { MaterialModule } from './material.module';
 import { SectionComponent } from './ui/layout/section/section.component';
 import { SettingContainerComponent } from './page/setting-page/container/setting-container/setting-container.component';
+import { SettingComponent } from './page/setting-page/presentational/setting/setting.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { SettingContainerComponent } from './page/setting-page/container/setting
     ForwardButtonComponent,
     SectionComponent,
     SettingContainerComponent,
+    SettingComponent,
   ],
   imports: [
     BrowserModule,
