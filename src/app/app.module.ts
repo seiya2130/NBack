@@ -10,6 +10,7 @@ import { MaterialModule } from './material.module';
 import { SectionComponent } from './ui/layout/section/section.component';
 import { SettingContainerComponent } from './page/setting-page/container/setting-container/setting-container.component';
 import { SettingComponent } from './page/setting-page/presentational/setting/setting.component';
+import { SettingStore } from './store/setting.store';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { SettingComponent } from './page/setting-page/presentational/setting/set
     BrowserAnimationsModule,
     MaterialModule
   ],
-  providers: [],
+  providers: [SettingStore],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
