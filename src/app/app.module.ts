@@ -8,6 +8,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ForwardButtonComponent } from './ui/gui/button/forward-button/forward-button.component';
 import { MaterialModule } from './material.module';
 import { SectionComponent } from './ui/layout/section/section.component';
+import { SettingContainerComponent } from './page/setting-page/container/setting-container/setting-container.component';
+import { SettingComponent } from './page/setting-page/presentational/setting/setting.component';
+import { SettingStore } from './store/setting.store';
 
 @NgModule({
   declarations: [
@@ -15,6 +18,8 @@ import { SectionComponent } from './ui/layout/section/section.component';
     SettingPageComponent,
     ForwardButtonComponent,
     SectionComponent,
+    SettingContainerComponent,
+    SettingComponent,
   ],
   imports: [
     BrowserModule,
@@ -22,7 +27,7 @@ import { SectionComponent } from './ui/layout/section/section.component';
     BrowserAnimationsModule,
     MaterialModule
   ],
-  providers: [],
+  providers: [SettingStore],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

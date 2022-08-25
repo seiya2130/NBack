@@ -1,4 +1,4 @@
-import { BehaviorSubject, Subject } from "rxjs";
+import { BehaviorSubject } from "rxjs";
 import { Setting } from "../model/setting.model";
 
 export class SettingStore {
