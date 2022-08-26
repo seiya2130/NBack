@@ -10,7 +10,7 @@ import { Setting } from '../../../../model/setting.model';
 })
 export class SettingContainerComponent implements OnInit {
 
-  setting$?: BehaviorSubject<Setting>;
+  setting$?: Observable<Setting>;
 
   constructor(
     private SettingService: SettingService
@@ -20,7 +20,7 @@ export class SettingContainerComponent implements OnInit {
 
   forwardButtonText: string = "スタート";
   ngOnInit(): void {
-    this.setting$ = this.SettingService.getSetting();
+    this.setting$ = this.SettingService.getSetting().asObservable();
   }
 
   // Outputでsetする

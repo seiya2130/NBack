@@ -12,7 +12,7 @@ export class SettingComponent implements OnInit , Setting {
   constructor() {
   }
 
-  @Input() setting$?: BehaviorSubject<Setting>;
+  @Input() setting$?: Observable<Setting>;
 
   nBackCount!: number;
   questionCount!: number;
