@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SettingService } from '../../../../service/setting.service';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { Setting } from '../../../../model/setting.model';
 
 @Component({
@@ -10,7 +10,7 @@ import { Setting } from '../../../../model/setting.model';
 })
 export class SettingContainerComponent implements OnInit {
 
-  setting$?: Observable<Setting>;
+  setting$?: BehaviorSubject<Setting>;
 
   constructor(
     private SettingService: SettingService
@@ -20,7 +20,7 @@ export class SettingContainerComponent implements OnInit {
 
   forwardButtonText: string = "スタート";
   ngOnInit(): void {
-    this.setting$ = this.SettingService.getSetting().asObservable();
+    this.setting$ = this.SettingService.getSetting();
   }
 
   // Outputでsetする
