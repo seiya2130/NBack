@@ -4,7 +4,11 @@
 <table>
   <tr>
       <td>Nバックカウント</td>
-      <td>{{ this.nBackCount }}</td>
+      <td>
+        <mat-select [(value)]="this.nBackCount">
+          <mat-option *ngFor="let num of this.nbackCountList" value="{{num}}">{{num}}</mat-option>
+        </mat-select>
+      </td>
   </tr>
   <tr>
     <td>問題数</td>
