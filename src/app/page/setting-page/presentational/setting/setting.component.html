@@ -1,0 +1,51 @@
+
+<h1>設定</h1>
+
+<table>
+  <tr>
+      <td>Nバックカウント</td>
+      <td>
+        <mat-select [(value)]="this.nBackCount">
+          <mat-option *ngFor="let num of this.nbackCountList" value="{{num}}">{{num}}</mat-option>
+        </mat-select>
+      </td>
+  </tr>
+  <tr>
+    <td>問題数</td>
+    <td>
+      <mat-select [(value)]="this.questionCount">
+        <mat-option *ngFor="let num of this.questionCountList" value="{{num}}">{{num}}</mat-option>
+      </mat-select>
+    </td>
+  </tr>
+  <tr>
+    <td>文字</td>
+    <td>
+      <mat-slide-toggle [(ngModel)]="this.isLetter"></mat-slide-toggle>
+    </td>
+  </tr>
+  <tr>
+    <td>音声</td>
+    <td>
+      <mat-slide-toggle [(ngModel)]="this.isAudio"></mat-slide-toggle>
+    </td>
+  </tr>
+  <tr>
+    <td>場所</td>
+    <td>
+      <mat-slide-toggle [(ngModel)]="this.isPlace"></mat-slide-toggle>
+    </td>
+  </tr>
+  <tr>
+    <td>色</td>
+    <td>
+      <mat-slide-toggle [(ngModel)]="this.isColor"></mat-slide-toggle>
+    </td>
+  </tr>
+  <tr>
+    <td>形</td>
+    <td>
+      <mat-slide-toggle [(ngModel)]="this.isShape"></mat-slide-toggle>
+    </td>
+  </tr>
+</table>
