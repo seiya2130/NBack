@@ -11,6 +11,7 @@ import { SectionComponent } from './ui/layout/section/section.component';
 import { SettingContainerComponent } from './page/setting-page/container/setting-container/setting-container.component';
 import { SettingComponent } from './page/setting-page/presentational/setting/setting.component';
 import { SettingStore } from './store/setting.store';
+import { FormsModule }   from '@angular/forms'
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { SettingStore } from './store/setting.store';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule
   ],
   providers: [SettingStore],
   bootstrap: [AppComponent]

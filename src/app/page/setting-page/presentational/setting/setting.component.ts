@@ -23,6 +23,7 @@ export class SettingComponent implements OnInit , Setting {
   isShape!: boolean;
 
   nbackCountList = [...Array(5)].map((_, i) => i + 1);
+  questionCountList = [...Array(25)].map((_, i) => i + 1);
 
   ngOnInit(): void {
     this.setting$?.subscribe(x =>{
