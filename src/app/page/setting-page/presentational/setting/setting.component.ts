@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Observable, BehaviorSubject } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Setting } from '../../../../model/setting.model';
 
 @Component({
@@ -21,6 +21,9 @@ export class SettingComponent implements OnInit , Setting {
   isPlace!: boolean;
   isColor!: boolean;
   isShape!: boolean;
+
+  nbackCountList = [...Array(5)].map((_, i) => i + 1);
+  questionCountList = [...Array(25)].map((_, i) => i + 1);
 
   ngOnInit(): void {
     this.setting$?.subscribe(x =>{
