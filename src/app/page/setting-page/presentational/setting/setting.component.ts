@@ -69,8 +69,8 @@ export class SettingComponent implements OnInit , Setting {
       isError = true;
     }
 
-    console.log("エラー")
-
-    //ダイアログ表示
+    if(isError){
+      console.log("エラー")
+    }
   }
 }

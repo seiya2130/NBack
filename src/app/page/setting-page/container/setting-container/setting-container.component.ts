@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { SettingService } from '../../../../service/setting.service';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { Setting } from '../../../../model/setting.model';
+import { SettingComponent } from '../../presentational/setting/setting.component';
 
 @Component({
   selector: 'app-setting-container',
@@ -9,6 +10,9 @@ import { Setting } from '../../../../model/setting.model';
   styleUrls: ['./setting-container.component.scss']
 })
 export class SettingContainerComponent implements OnInit {
+
+  @ViewChild(SettingComponent)
+  settingComponent!: SettingComponent;
 
   setting$?: Observable<Setting>;
 
@@ -23,6 +27,8 @@ export class SettingContainerComponent implements OnInit {
     this.setting$ = this.SettingService.getSetting().asObservable();
   }
 
-  // Outputでsetする
+  submit(): void {
+    this.settingComponent.start();
+  }
 
 }
