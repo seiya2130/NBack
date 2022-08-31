@@ -36,4 +36,41 @@ export class SettingComponent implements OnInit , Setting {
       this.isShape = x.isShape;
     });
   }
+
+  start(): void {
+    this.validateSeting();
+  }
+
+  validateSeting(): void {
+
+    let isError = false;
+
+    if (this.nBackCount == undefined || this.nBackCount <= 0)
+    {
+      isError = true;
+    }
+
+    if (this.questionCount == undefined || this.questionCount <= 0)
+    {
+      isError = true;
+    }
+
+    const booleanSettingList: boolean[] = [
+      this.isLetter,
+      this.isAudio,
+      this.isPlace,
+      this.isColor,
+      this.isShape,
+    ]
+
+    const trueCount: number = booleanSettingList.filter(x => x == true).length;
+
+    if(trueCount <= 0){
+      isError = true;
+    }
+
+    console.log("エラー")
+
+    //ダイアログ表示
+  }
 }
