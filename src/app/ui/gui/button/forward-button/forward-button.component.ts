@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-forward-button',
@@ -9,8 +9,12 @@ export class ForwardButtonComponent implements OnInit {
 
   constructor() { }
   @Input() buttonText: string = "";
+  @Output() event = new EventEmitter<String>();
 
   ngOnInit(): void {
   }
 
+  submit() : void{
+    this.event.emit();
+  }
 }
