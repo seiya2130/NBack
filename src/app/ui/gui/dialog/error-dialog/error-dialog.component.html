@@ -1,0 +1,14 @@
+<div>
+  <h1 mat-dialog-title>エラー</h1>
+</div>
+
+<div>
+  <ng-container *ngFor="let message of data">
+    <p>{{message}}</p>
+  </ng-container>
+</div>
+
+<div class="text-right">
+  <button mat-button (click)="close()">閉じる</button>
+</div>
+
