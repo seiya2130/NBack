@@ -11,7 +11,8 @@ import { SectionComponent } from './ui/layout/section/section.component';
 import { SettingContainerComponent } from './page/setting-page/container/setting-container/setting-container.component';
 import { SettingComponent } from './page/setting-page/presentational/setting/setting.component';
 import { SettingStore } from './store/setting.store';
-import { FormsModule }   from '@angular/forms'
+import { FormsModule }   from '@angular/forms';
+import { ErrorDialogComponent } from './ui/gui/dialog/error-dialog/error-dialog.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { FormsModule }   from '@angular/forms'
     SectionComponent,
     SettingContainerComponent,
     SettingComponent,
+    ErrorDialogComponent,
   ],
   imports: [
     BrowserModule,

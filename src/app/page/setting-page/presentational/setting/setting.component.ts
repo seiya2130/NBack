@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { Setting } from '../../../../model/setting.model';
+import { ErrorDialogComponent } from '../../../../ui/gui/dialog/error-dialog/error-dialog.component';
 
 @Component({
   selector: 'app-setting',
@@ -9,7 +11,7 @@ import { Setting } from '../../../../model/setting.model';
 })
 export class SettingComponent implements OnInit , Setting {
 
-  constructor() {
+  constructor(private dialog: MatDialog) {
   }
 
   @Input() setting$?: Observable<Setting>;
@@ -43,16 +45,16 @@ export class SettingComponent implements OnInit , Setting {
 
   validateSeting(): void {
 
-    let isError = false;
+    let errorMessageList: string[] = [];
 
     if (this.nBackCount == undefined || this.nBackCount <= 0)
     {
-      isError = true;
+      errorMessageList.push("Nバックカウントは1以上の値を設定してください");
     }
 
     if (this.questionCount == undefined || this.questionCount <= 0)
     {
-      isError = true;
+      errorMessageList.push("問題数は1以上の値を設定してください");
     }
 
     const booleanSettingList: boolean[] = [
@@ -63,14 +65,16 @@ export class SettingComponent implements OnInit , Setting {
       this.isShape,
     ]
 
-    const trueCount: number = booleanSettingList.filter(x => x == true).length;
+    const enableSettingCount: number = booleanSettingList.filter(x => x == true).length;
 
-    if(trueCount <= 0){
-      isError = true;
+    if(enableSettingCount <= 0){
+      errorMessageList.push("文字・音声・場所・色・形は最低でも1つ有効にしてください");
     }
 
-    if(isError){
-      console.log("エラー")
+    if(errorMessageList.length > 0){
+      this.dialog.open(ErrorDialogComponent, {
+        data: errorMessageList
+      });
     }
   }
 }
