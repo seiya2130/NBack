@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { SettingService } from '../../../../service/setting.service';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { Setting } from '../../../../model/setting.model';
@@ -11,8 +11,8 @@ import { SettingComponent } from '../../presentational/setting/setting.component
 })
 export class SettingContainerComponent implements OnInit {
 
-  @ViewChild(SettingComponent)
-  settingComponent!: SettingComponent;
+  @ViewChild(SettingComponent) settingComponent!: SettingComponent;
+  @Output() event = new EventEmitter<String>();
 
   setting$?: Observable<Setting>;
 
@@ -29,6 +29,10 @@ export class SettingContainerComponent implements OnInit {
 
   submit(): void {
     this.settingComponent.start();
+  }
+
+  navigatePlayPage(): void {
+    this.event.emit();
   }
 
 }
