@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { Setting } from '../../../../model/setting.model';
@@ -15,6 +15,7 @@ export class SettingComponent implements OnInit , Setting {
   }
 
   @Input() setting$?: Observable<Setting>;
+  @Output() event = new EventEmitter<String>();
 
   nBackCount!: number;
   questionCount!: number;
@@ -75,6 +76,10 @@ export class SettingComponent implements OnInit , Setting {
       this.dialog.open(ErrorDialogComponent, {
         data: errorMessageList
       });
+
+      return;
     }
+
+    this.event.emit();
   }
 }

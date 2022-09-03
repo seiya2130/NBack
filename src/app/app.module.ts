@@ -13,6 +13,7 @@ import { SettingComponent } from './page/setting-page/presentational/setting/set
 import { SettingStore } from './store/setting.store';
 import { FormsModule }   from '@angular/forms';
 import { ErrorDialogComponent } from './ui/gui/dialog/error-dialog/error-dialog.component';
+import { PlayPageComponent } from './page/play-page/play-page.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { ErrorDialogComponent } from './ui/gui/dialog/error-dialog/error-dialog.
     SettingContainerComponent,
     SettingComponent,
     ErrorDialogComponent,
+    PlayPageComponent,
   ],
   imports: [
     BrowserModule,
