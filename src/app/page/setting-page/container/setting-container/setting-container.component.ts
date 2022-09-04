@@ -27,6 +27,11 @@ export class SettingContainerComponent implements OnInit {
     this.setting$ = this.SettingService.getSetting().asObservable();
   }
 
+  startPlay(setting: Setting) :void {
+    this.SettingService.setSetting(setting);
+    this.navigatePlayPage();
+  }
+
   submit(): void {
     this.settingComponent.start();
   }

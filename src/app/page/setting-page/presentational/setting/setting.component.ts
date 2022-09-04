@@ -15,7 +15,7 @@ export class SettingComponent implements OnInit , Setting {
   }
 
   @Input() setting$?: Observable<Setting>;
-  @Output() event = new EventEmitter<String>();
+  @Output() event = new EventEmitter<Setting>();
 
   nBackCount!: number;
   questionCount!: number;
@@ -80,6 +80,16 @@ export class SettingComponent implements OnInit , Setting {
       return;
     }
 
-    this.event.emit();
+    const setting: Setting = {
+      nBackCount: this.nBackCount,
+      questionCount: this.questionCount,
+      isLetter: this.isLetter,
+      isAudio: this.isAudio,
+      isPlace: this.isPlace,
+      isColor: this.isColor,
+      isShape: this.isShape
+    }
+
+    this.event.emit(setting);
   }
 }
