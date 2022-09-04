@@ -14,8 +14,18 @@ export class PlayComponent implements OnInit {
 
   ngOnInit(): void {
     this.setting$?.subscribe(x =>{
-      console.log(x);
-    });
+
+      let count = 0;
+      const countUp = () =>{
+        console.log(count++);
+      }
+
+      const interval = setInterval(() =>{
+        countUp();
+        if(count >= x.questionCount){
+          clearInterval(interval);
+        }}, 2500);
+      });
   }
 
 }
