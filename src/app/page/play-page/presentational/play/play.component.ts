@@ -11,21 +11,25 @@ export class PlayComponent implements OnInit {
 
   constructor() { }
   @Input() setting$!: Observable<Setting>;
+  questionCount = 0;
 
   ngOnInit(): void {
     this.setting$?.subscribe(x =>{
 
-      let count = 0;
-      const countUp = () =>{
-        console.log(count++);
-      }
+      //問題を作成
+
+      //問題を表示
 
       const interval = setInterval(() =>{
-        countUp();
-        if(count >= x.questionCount){
+        this.countUp();
+
+        if(this.questionCount >= x.questionCount){
           clearInterval(interval);
         }}, 2500);
       });
   }
 
+  countUp(): void {
+    this.questionCount++;
+  }
 }
