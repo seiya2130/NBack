@@ -14,6 +14,8 @@ import { SettingStore } from './store/setting.store';
 import { FormsModule }   from '@angular/forms';
 import { ErrorDialogComponent } from './ui/gui/dialog/error-dialog/error-dialog.component';
 import { PlayPageComponent } from './page/play-page/play-page.component';
+import { PlayContainerComponent } from './page/play-page/container/play-container/play-container.component';
+import { PlayComponent } from './page/play-page/presentational/play/play.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,8 @@ import { PlayPageComponent } from './page/play-page/play-page.component';
     SettingComponent,
     ErrorDialogComponent,
     PlayPageComponent,
+    PlayContainerComponent,
+    PlayComponent,
   ],
   imports: [
     BrowserModule,
