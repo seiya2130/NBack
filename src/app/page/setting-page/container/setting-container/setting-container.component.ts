@@ -14,21 +14,21 @@ export class SettingContainerComponent implements OnInit {
   @ViewChild(SettingComponent) settingComponent!: SettingComponent;
   @Output() event = new EventEmitter<String>();
 
-  setting$?: Observable<Setting>;
+  setting$!: Observable<Setting>;
 
   constructor(
-    private SettingService: SettingService
+    private settingService: SettingService
   ) {
 
   }
 
   forwardButtonText: string = "スタート";
   ngOnInit(): void {
-    this.setting$ = this.SettingService.getSetting().asObservable();
+    this.setting$ = this.settingService.getSetting().asObservable();
   }
 
   startPlay(setting: Setting) :void {
-    this.SettingService.setSetting(setting);
+    this.settingService.setSetting(setting);
     this.navigatePlayPage();
   }
 

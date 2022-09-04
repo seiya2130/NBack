@@ -14,7 +14,7 @@ export class SettingComponent implements OnInit , Setting {
   constructor(private dialog: MatDialog) {
   }
 
-  @Input() setting$?: Observable<Setting>;
+  @Input() setting$!: Observable<Setting>;
   @Output() event = new EventEmitter<Setting>();
 
   nBackCount!: number;

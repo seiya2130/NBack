@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Setting } from 'src/app/model/setting.model';
+import { SettingService } from 'src/app/service/setting.service';
 
 @Component({
   selector: 'app-play-container',
@@ -7,9 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlayContainerComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private settingService: SettingService
+  ) { }
+  setting$!: Observable<Setting>;
 
   ngOnInit(): void {
+    this.setting$ = this.settingService.getSetting().asObservable();
   }
 
 }
