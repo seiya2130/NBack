@@ -1,1 +1,8 @@
-<p>play works!</p>
+<div>
+  {{this.currentQuestion.letter}}
+</div>
+<div>
+  <button [disabled]="this.isLetter === false">文字</button>
+  <button [disabled]="this.isAudio === false">音声</button>
+</div>
+
