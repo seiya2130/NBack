@@ -44,15 +44,14 @@ export class PlayComponent implements OnInit {
 
       const interval = setInterval(() =>{
 
-        this.CountUp();
+        this.countUp();
 
         if(this.questionCount >= x.questionCount){
           clearInterval(interval);
-          //回答結果集計
+          this.checkAnswer();
         }
 
         if(this.questionCount >= 2){
-          //回答を記録(ボタンの状態を取得、ボタンをリセット)
           this.answerList.push(this.currentAnswer);
           this.currentAnswer = {
             isLetter: false,
@@ -63,9 +62,8 @@ export class PlayComponent implements OnInit {
           }
         }
 
-        // 問題作成
         this.currentQuestion = {
-          letter: x.isLetter ? this.GetRandomLetter() : "",
+          letter: x.isLetter ? this.getRandomLetter() : "",
           audio: "",
           place: "",
           color: "",
@@ -74,16 +72,15 @@ export class PlayComponent implements OnInit {
 
         this.questionList.push(this.currentQuestion);
 
-        //問題保存
         }, 3000);
       });
   }
 
-  CountUp(): void {
+  countUp(): void {
     this.questionCount++;
   }
 
-  GetRandomLetter(): string {
+  getRandomLetter(): string {
     const letterList = [
       "A" , "B", "C", "D", "E", "F", "G",
       "H", "I", "J", "K", "L", "M", "N",
@@ -93,4 +90,10 @@ export class PlayComponent implements OnInit {
 
     return letterList[Math.floor(Math.random() * letterList.length)];
   }
+
+  checkAnswer(): void {
+    //回答結果集計
+    //結果ページ遷移
+  }
+
 }
