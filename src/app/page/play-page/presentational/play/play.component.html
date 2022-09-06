@@ -2,7 +2,7 @@
   {{this.currentQuestion.letter}}
 </div>
 <div>
-  <button [disabled]="this.isLetter === false">文字</button>
+  <mat-checkbox [(ngModel)]="this.currentAnswer.isLetter" [disabled]="this.isLetter === false">文字</mat-checkbox>
   <button [disabled]="this.isAudio === false">音声</button>
   <button [disabled]="this.isPlace === false">場所</button>
   <button [disabled]="this.isColor === false">色</button>

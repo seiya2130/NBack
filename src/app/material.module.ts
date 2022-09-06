@@ -3,6 +3,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatDialogModule } from '@angular/material/dialog';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 
 @NgModule({
@@ -11,6 +12,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatSelectModule,
     MatSlideToggleModule,
     MatDialogModule,
+    MatCheckboxModule
   ]
 })
 export class MaterialModule { }
