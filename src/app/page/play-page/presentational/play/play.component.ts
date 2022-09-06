@@ -1,7 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Setting } from 'src/app/model/setting.model';
+import { Shape } from 'src/app/model/shape';
 import { Question } from '../../../../model/question.model';
+import { Answer } from '../../../../model/answer.model';
 
 @Component({
   selector: 'app-play',
@@ -14,41 +16,63 @@ export class PlayComponent implements OnInit {
   @Input() setting$!: Observable<Setting>;
   questionCount = 0;
   currentQuestion!: Question;
+  currentAnswer: Answer = {
+    isLetter: false,
+    isAudio: false,
+    isPlace: false,
+    isColor: false,
+    isShape: false
+  };
   isLetter!: boolean;
   isAudio!: boolean;
+  isPlace!: boolean;
+  isColor!: boolean;
+  isShape!: boolean;
 
-  questionList!: Question[];
+  questionList: Question[] = [];
+  answerList: Answer[] = [];
 
   ngOnInit(): void {
+
     this.setting$.subscribe(x =>{
 
       this.isLetter = x.isLetter;
       this.isAudio = x.isAudio;
+      this.isPlace = x.isPlace;
+      this.isColor = x.isColor;
+      this.isShape = x.isShape;
 
       const interval = setInterval(() =>{
 
-        if(this.questionCount >= 1){
-          //回答を記録(ボタンの状態を取得、ボタンをリセット)
-
-        }
-
         this.countUp();
-
-        // 問題作成
-        const question: Question = {
-          letter: x.isLetter ? this.GetRandomLetter() : "",
-        };
-
-        //問題表示
-        this.currentQuestion = question;
-
-        //問題保存
-        this.questionList.push(question);
 
         if(this.questionCount >= x.questionCount){
           clearInterval(interval);
-          //回答結果集計
-        }}, 3000);
+          this.checkAnswer();
+        }
+
+        if(this.questionCount >= 2){
+          this.answerList.push(this.currentAnswer);
+          this.currentAnswer = {
+            isLetter: false,
+            isAudio: false,
+            isPlace: false,
+            isColor: false,
+            isShape: false
+          }
+        }
+
+        this.currentQuestion = {
+          letter: x.isLetter ? this.getRandomLetter() : "",
+          audio: "",
+          place: "",
+          color: "",
+          shape: Shape.Square
+        };
+
+        this.questionList.push(this.currentQuestion);
+
+        }, 3000);
       });
   }
 
@@ -56,7 +80,7 @@ export class PlayComponent implements OnInit {
     this.questionCount++;
   }
 
-  GetRandomLetter(): string {
+  getRandomLetter(): string {
     const letterList = [
       "A" , "B", "C", "D", "E", "F", "G",
       "H", "I", "J", "K", "L", "M", "N",
@@ -66,4 +90,10 @@ export class PlayComponent implements OnInit {
 
     return letterList[Math.floor(Math.random() * letterList.length)];
   }
+
+  checkAnswer(): void {
+    //回答結果集計
+    //結果ページ遷移
+  }
+
 }
