@@ -49,7 +49,6 @@ export class PlayComponent implements OnInit {
 
       const interval = setInterval(() =>{
 
-        //TODO カウントがおかしい
         if(this.questionCount >= x.questionCount + this.nbackCount){
           clearInterval(interval);
           this.checkAnswer();
