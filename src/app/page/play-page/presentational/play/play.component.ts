@@ -23,6 +23,8 @@ export class PlayComponent implements OnInit {
     isColor: false,
     isShape: false
   };
+
+  nbackCount!: number;
   isLetter!: boolean;
   isAudio!: boolean;
   isPlace!: boolean;
@@ -32,10 +34,13 @@ export class PlayComponent implements OnInit {
   questionList: Question[] = [];
   answerList: Answer[] = [];
 
+  correctAnswerCount: number = 0;
+
   ngOnInit(): void {
 
     this.setting$.subscribe(x =>{
 
+      this.nbackCount = x.nBackCount;
       this.isLetter = x.isLetter;
       this.isAudio = x.isAudio;
       this.isPlace = x.isPlace;
@@ -44,14 +49,13 @@ export class PlayComponent implements OnInit {
 
       const interval = setInterval(() =>{
 
-        this.countUp();
-
-        if(this.questionCount >= x.questionCount){
+        //TODO カウントがおかしい
+        if(this.questionCount >= x.questionCount + this.nbackCount){
           clearInterval(interval);
           this.checkAnswer();
         }
 
-        if(this.questionCount >= 2){
+        if(this.questionCount >= 1){
           this.answerList.push(this.currentAnswer);
           this.currentAnswer = {
             isLetter: false,
@@ -71,7 +75,7 @@ export class PlayComponent implements OnInit {
         };
 
         this.questionList.push(this.currentQuestion);
-
+        this.countUp();
         }, 3000);
       });
   }
@@ -92,7 +96,14 @@ export class PlayComponent implements OnInit {
   }
 
   checkAnswer(): void {
-    //回答結果集計
+    for(let i = 0; i < this.answerList.length; i++){
+      //文字
+      if((this.questionList[i].letter === this.questionList[i + this.nbackCount].letter) !== this.answerList[i].isLetter){
+        continue;
+      }
+
+      this.correctAnswerCount++;
+    }
     //結果ページ遷移
   }
 
