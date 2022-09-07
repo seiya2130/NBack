@@ -1,9 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Answer } from 'src/app/model/answer.model';
+import { Question } from 'src/app/model/question.model';
 import { Setting } from 'src/app/model/setting.model';
 import { Shape } from 'src/app/model/shape';
-import { Question } from '../../../../model/question.model';
-import { Answer } from '../../../../model/answer.model';
+
 
 @Component({
   selector: 'app-play',
