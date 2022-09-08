@@ -1,9 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, EventEmitter, Output } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Answer } from 'src/app/model/answer.model';
+import { Question } from 'src/app/model/question.model';
 import { Setting } from 'src/app/model/setting.model';
 import { Shape } from 'src/app/model/shape';
-import { Question } from '../../../../model/question.model';
-import { Answer } from '../../../../model/answer.model';
+
 
 @Component({
   selector: 'app-play',
@@ -14,6 +15,8 @@ export class PlayComponent implements OnInit {
 
   constructor() { }
   @Input() setting$!: Observable<Setting>;
+  @Output() event = new EventEmitter<number>();
+
   questionCount = 0;
   currentQuestion!: Question;
   currentAnswer: Answer = {
@@ -103,7 +106,12 @@ export class PlayComponent implements OnInit {
 
       this.correctAnswerCount++;
     }
-    //結果ページ遷移
+
+    this.navigateResultPage();
+  }
+
+  navigateResultPage(): void {
+    this.event.emit(this.correctAnswerCount);
   }
 
 }

@@ -16,6 +16,10 @@ import { ErrorDialogComponent } from './ui/gui/dialog/error-dialog/error-dialog.
 import { PlayPageComponent } from './page/play-page/play-page.component';
 import { PlayContainerComponent } from './page/play-page/container/play-container/play-container.component';
 import { PlayComponent } from './page/play-page/presentational/play/play.component';
+import { ResultPageComponent } from './page/result-page/result-page.component';
+import { ResultContainerComponent } from './page/result-page/container/result-container/result-container.component';
+import { ResultComponent } from './page/result-page/presentational/result/result.component';
+import { BackButtonComponent } from './ui/gui/button/back-button/back-button.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +33,10 @@ import { PlayComponent } from './page/play-page/presentational/play/play.compone
     PlayPageComponent,
     PlayContainerComponent,
     PlayComponent,
+    ResultPageComponent,
+    ResultContainerComponent,
+    ResultComponent,
+    BackButtonComponent,
   ],
   imports: [
     BrowserModule,
