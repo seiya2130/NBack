@@ -17,6 +17,8 @@ import { PlayPageComponent } from './page/play-page/play-page.component';
 import { PlayContainerComponent } from './page/play-page/container/play-container/play-container.component';
 import { PlayComponent } from './page/play-page/presentational/play/play.component';
 import { ResultPageComponent } from './page/result-page/result-page.component';
+import { ResultContainerComponent } from './page/result-page/container/result-container/result-container.component';
+import { ResultComponent } from './page/result-page/presentational/result/result.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,8 @@ import { ResultPageComponent } from './page/result-page/result-page.component';
     PlayContainerComponent,
     PlayComponent,
     ResultPageComponent,
+    ResultContainerComponent,
+    ResultComponent,
   ],
   imports: [
     BrowserModule,
