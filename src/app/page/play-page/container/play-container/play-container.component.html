@@ -4,5 +4,5 @@
 </app-section>
 
 <app-section>
-  <app-play [setting$]="setting$"></app-play>
+  <app-play [setting$]="setting$" (event)="navigateResultPage($event)"></app-play>
 </app-section>

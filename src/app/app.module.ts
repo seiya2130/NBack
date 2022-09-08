@@ -16,6 +16,7 @@ import { ErrorDialogComponent } from './ui/gui/dialog/error-dialog/error-dialog.
 import { PlayPageComponent } from './page/play-page/play-page.component';
 import { PlayContainerComponent } from './page/play-page/container/play-container/play-container.component';
 import { PlayComponent } from './page/play-page/presentational/play/play.component';
+import { ResultPageComponent } from './page/result-page/result-page.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { PlayComponent } from './page/play-page/presentational/play/play.compone
     PlayPageComponent,
     PlayContainerComponent,
     PlayComponent,
+    ResultPageComponent,
   ],
   imports: [
     BrowserModule,
