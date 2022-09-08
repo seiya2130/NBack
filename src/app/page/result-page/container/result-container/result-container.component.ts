@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-result-container',
@@ -9,9 +9,11 @@ export class ResultContainerComponent implements OnInit {
 
   constructor() { }
   @Output() event = new EventEmitter<string>();
+  @Input() correctAnswerCount!: number;
 
   forwardButtonText = "同じ設定でスタート";
   backButtonText = "設定に戻る";
+
   ngOnInit(): void {
   }
 

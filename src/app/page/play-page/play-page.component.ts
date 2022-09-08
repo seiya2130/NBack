@@ -13,8 +13,8 @@ export class PlayPageComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  navigateResultPage(currentAnswerCount: number): void {
-    this.router.navigate([ 'result' ], { queryParams: { currentAnswerCount: currentAnswerCount } });
+  navigateResultPage(correctAnswerCount: number): void {
+    this.router.navigate([ 'result' ], { queryParams: { correctAnswerCount: correctAnswerCount } });
   }
 
 }

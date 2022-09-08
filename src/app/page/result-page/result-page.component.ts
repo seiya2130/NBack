@@ -10,12 +10,15 @@ export class ResultPageComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private router: Router) { }
+    private router: Router
+  ) { }
+  correctAnswerCount!: number;
 
   ngOnInit(): void {
     this.route.queryParams
       .subscribe(params => {
         console.log(params);
+        this.correctAnswerCount = params["correctAnswerCount"];
       });
   }
 
