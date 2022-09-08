@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-result-page',
@@ -8,12 +8,18 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ResultPageComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.route.queryParams
       .subscribe(params => {
         console.log(params);
       });
+  }
+
+  navigatePlayPage(): void {
+    this.router.navigate([ 'play' ]);
   }
 }

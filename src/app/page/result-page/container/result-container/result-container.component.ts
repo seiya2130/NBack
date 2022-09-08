@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-result-container',
@@ -8,8 +8,14 @@ import { Component, OnInit } from '@angular/core';
 export class ResultContainerComponent implements OnInit {
 
   constructor() { }
+  @Output() event = new EventEmitter<number>();
 
+  buttonText = "同じ設定でスタート";
   ngOnInit(): void {
+  }
+
+  navigatePlayPage(): void {
+    this.event.emit();
   }
 
 }
