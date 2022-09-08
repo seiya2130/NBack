@@ -19,6 +19,7 @@ import { PlayComponent } from './page/play-page/presentational/play/play.compone
 import { ResultPageComponent } from './page/result-page/result-page.component';
 import { ResultContainerComponent } from './page/result-page/container/result-container/result-container.component';
 import { ResultComponent } from './page/result-page/presentational/result/result.component';
+import { BackButtonComponent } from './ui/gui/button/back-button/back-button.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { ResultComponent } from './page/result-page/presentational/result/result
     ResultPageComponent,
     ResultContainerComponent,
     ResultComponent,
+    BackButtonComponent,
   ],
   imports: [
     BrowserModule,

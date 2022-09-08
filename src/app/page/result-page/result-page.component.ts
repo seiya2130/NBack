@@ -19,7 +19,16 @@ export class ResultPageComponent implements OnInit {
       });
   }
 
-  navigatePlayPage(): void {
-    this.router.navigate([ 'play' ]);
+  navigatePage(page: string): void {
+
+    switch(page){
+      case "setting":
+        this.router.navigate([ 'setting' ]);
+        break;
+      case "play":
+        this.router.navigate([ 'play' ]);
+        break;
+    }
+
   }
 }
