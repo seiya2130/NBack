@@ -17,7 +17,6 @@ export class PlayComponent implements OnInit {
   @Input() setting$!: Observable<Setting>;
   @Output() event = new EventEmitter<number>();
 
-  questionCount = 0;
   currentQuestion!: Question;
   currentAnswer: Answer = {
     isLetter: false,
@@ -28,6 +27,7 @@ export class PlayComponent implements OnInit {
   };
 
   nbackCount!: number;
+  questionCount = 0;
   isLetter!: boolean;
   isAudio!: boolean;
   isPlace!: boolean;
@@ -44,6 +44,7 @@ export class PlayComponent implements OnInit {
     this.setting$.subscribe(x =>{
 
       this.nbackCount = x.nBackCount;
+      this.questionCount = x.questionCount;
       this.isLetter = x.isLetter;
       this.isAudio = x.isAudio;
       this.isPlace = x.isPlace;
@@ -52,12 +53,12 @@ export class PlayComponent implements OnInit {
 
       const interval = setInterval(() =>{
 
-        if(this.questionCount >= x.questionCount + this.nbackCount){
+        if(this.questionList.length >= this.questionCount + this.nbackCount){
           clearInterval(interval);
           this.checkAnswer();
         }
 
-        if(this.questionCount >= 1){
+        if(this.questionList.length >= 1){
           this.answerList.push(this.currentAnswer);
           this.currentAnswer = {
             isLetter: false,
@@ -77,13 +78,8 @@ export class PlayComponent implements OnInit {
         };
 
         this.questionList.push(this.currentQuestion);
-        this.countUp();
         }, 3000);
       });
-  }
-
-  countUp(): void {
-    this.questionCount++;
   }
 
   getRandomLetter(): string {

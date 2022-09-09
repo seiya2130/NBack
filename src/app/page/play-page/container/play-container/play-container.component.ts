@@ -20,7 +20,7 @@ export class PlayContainerComponent implements OnInit {
     this.setting$ = this.settingService.getSetting().asObservable();
   }
 
-  navigateResultPage(currentAnswerCount: number): void {
-    this.event.emit(currentAnswerCount);
+  navigateResultPage(correctAnswerCount: number): void {
+    this.event.emit(correctAnswerCount);
   }
 }
