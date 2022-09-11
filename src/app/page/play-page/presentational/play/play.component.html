@@ -1,11 +1,14 @@
-<div>
+<div
+  [className]="getShapeClass()"
+  [className]="getColorClass()"
+>
   {{this.currentQuestion.letter}}
 </div>
 <div>
   <mat-checkbox [(ngModel)]="this.currentAnswer.isLetter" [disabled]="this.isLetter === false">文字</mat-checkbox>
   <mat-checkbox [(ngModel)]="this.currentAnswer.isAudio" [disabled]="this.isAudio === false">音声</mat-checkbox>
   <button [disabled]="this.isPlace === false">場所</button>
-  <button [disabled]="this.isColor === false">色</button>
-  <button [disabled]="this.isShape === false">形</button>
+  <mat-checkbox [(ngModel)]="this.currentAnswer.isColor" [disabled]="this.isColor === false">色</mat-checkbox>
+  <mat-checkbox [(ngModel)]="this.currentAnswer.isShape" [disabled]="this.isShape === false">形</mat-checkbox>
 </div>
 
