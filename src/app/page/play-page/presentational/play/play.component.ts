@@ -75,7 +75,7 @@ export class PlayComponent implements OnInit {
           audio: this.isAudio ? this.speechNumber() : "",
           place: "",
           color: this.isColor ? this.getColor() : "black",
-          shape: this.isShape ? this.getShape() : Shape.Square
+          shape: this.isShape ? Shape.Triangle : this.getShape()
         };
 
         this.questionList.push(this.currentQuestion);
@@ -145,8 +145,8 @@ export class PlayComponent implements OnInit {
 
     // TODO ループで取得する
     let shapeList: number[] = [
-      Shape.Square,
       Shape.Circle,
+      Shape.Square,
       Shape.Triangle
     ];
 
@@ -166,30 +166,5 @@ export class PlayComponent implements OnInit {
     const index = Math.floor(Math.random() * colorList.length);
 
     return colorList[index];
-  }
-
-  getShapeClass(): string {
-    switch(this.currentQuestion.shape){
-      case Shape.Square:
-        return "square";
-      case Shape.Circle:
-        return "circle";
-      case Shape.Triangle:
-        return "triangle"
-    }
-  }
-
-  getColorClass(): string {
-
-    switch(this.currentQuestion.color){
-      case "red":
-        return "border-red";
-      case "blue":
-        return "border-blue";
-      case "green":
-        return "border-green";
-      default:
-        return "border-black";
-    }
   }
 }
