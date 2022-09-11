@@ -1,11 +1,12 @@
 <div [ngClass]="{
-  'border' : true ,
+  'default-block' : true,
   'border-black' : this.currentQuestion.color === 'black',
   'border-red' : this.currentQuestion.color === 'red',
   'border-blue' : this.currentQuestion.color === 'blue',
-  'border-green' : this.currentQuestion.color === 'green'
-}">
-  {{this.currentQuestion.letter}}
+  'border-green' : this.currentQuestion.color === 'green',
+  'triangle' : this.currentQuestion.shape === 0,
+  'circle' : this.currentQuestion.shape === 2}">
+  <p>{{this.currentQuestion.letter}}</p>
 </div>
 <div>
   <mat-checkbox [(ngModel)]="this.currentAnswer.isLetter" [disabled]="this.isLetter === false">文字</mat-checkbox>

@@ -1,5 +1,8 @@
-.border {
+.default-block {
   border: 1px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .square {
@@ -7,12 +10,17 @@
 }
 
 .triangle {
-  border-right: 50px solid transparent;
-  border-bottom: 50px solid #b2ce54;
-  border-left: 50px solid transparent;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  width: 500px;
+  height: 500px;
+  background-color: mediumpurple;
 }
 
-.boder-black {
+.circle {
+  border-radius: 50%;
+}
+
+.border-black {
   border-color: black;
 }
 
