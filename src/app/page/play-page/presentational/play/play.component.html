@@ -1,7 +1,10 @@
-<div
-  [className]="getShapeClass()"
-  [className]="getColorClass()"
->
+<div [ngClass]="{
+  'border' : true ,
+  'border-black' : this.currentQuestion.color === 'black',
+  'border-red' : this.currentQuestion.color === 'red',
+  'border-blue' : this.currentQuestion.color === 'blue',
+  'border-green' : this.currentQuestion.color === 'green'
+}">
   {{this.currentQuestion.letter}}
 </div>
 <div>
