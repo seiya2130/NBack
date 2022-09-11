@@ -1,5 +1,5 @@
 export enum Shape {
-  Triangle,
+  Triangle = 0,
   Square,
   Circle
 }

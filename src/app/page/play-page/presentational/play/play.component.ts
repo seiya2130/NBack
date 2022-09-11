@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, EventEmitter, Output } from '@angular/core';
+import { _MatSlideToggleRequiredValidatorModule } from '@angular/material/slide-toggle';
 import { Observable } from 'rxjs';
 import { Answer } from 'src/app/model/answer.model';
 import { Question } from 'src/app/model/question.model';
@@ -70,11 +71,11 @@ export class PlayComponent implements OnInit {
         }
 
         this.currentQuestion = {
-          letter: x.isLetter ? this.getRandomLetter() : "",
-          audio: x.isAudio ? this.speechNumber() : "",
+          letter: this.isLetter ? this.getRandomLetter() : "",
+          audio: this.isAudio ? this.speechNumber() : "",
           place: "",
-          color: "",
-          shape: Shape.Square
+          color: this.isColor ? this.getColor() : "black",
+          shape: this.isShape ? this.getShape() : Shape.Square
         };
 
         this.questionList.push(this.currentQuestion);
@@ -95,12 +96,24 @@ export class PlayComponent implements OnInit {
 
   checkAnswer(): void {
     for(let i = 0; i < this.answerList.length; i++){
-      //文字
-      if((this.questionList[i].letter === this.questionList[i + this.nbackCount].letter) !== this.answerList[i].isLetter){
+
+      if(this.isLetter &&
+        (this.questionList[i].letter === this.questionList[i + this.nbackCount].letter) !== this.answerList[i].isLetter){
         continue;
       }
 
-      if((this.questionList[i].audio === this.questionList[i + this.nbackCount].audio) !== this.answerList[i].isAudio){
+      if(this.isAudio &&
+        (this.questionList[i].audio === this.questionList[i + this.nbackCount].audio) !== this.answerList[i].isAudio){
+        continue;
+      }
+
+      if(this.isColor &&
+        (this.questionList[i].color === this.questionList[i + this.nbackCount].color) !== this.answerList[i].isColor){
+        continue;
+      }
+
+      if(this.isShape &&
+        (this.questionList[i].shape === this.questionList[i + this.nbackCount].shape) !== this.answerList[i].isShape){
         continue;
       }
 
@@ -127,4 +140,56 @@ export class PlayComponent implements OnInit {
     window.speechSynthesis.speak(uttr);
     return uttr.text;
   };
+
+  getShape(): Shape {
+
+    // TODO ループで取得する
+    let shapeList: number[] = [
+      Shape.Square,
+      Shape.Circle,
+      Shape.Triangle
+    ];
+
+    const index = Math.floor(Math.random() * shapeList.length);
+
+    return shapeList[index];
+  }
+
+  getColor(): string {
+
+    let colorList: string[] = [
+      "red",
+      "blue",
+      "green"
+    ];
+
+    const index = Math.floor(Math.random() * colorList.length);
+
+    return colorList[index];
+  }
+
+  getShapeClass(): string {
+    switch(this.currentQuestion.shape){
+      case Shape.Square:
+        return "square";
+      case Shape.Circle:
+        return "circle";
+      case Shape.Triangle:
+        return "triangle"
+    }
+  }
+
+  getColorClass(): string {
+
+    switch(this.currentQuestion.color){
+      case "red":
+        return "border-red";
+      case "blue":
+        return "border-blue";
+      case "green":
+        return "border-green";
+      default:
+        return "border-black";
+    }
+  }
 }
