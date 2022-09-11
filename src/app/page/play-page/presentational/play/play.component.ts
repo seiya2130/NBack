@@ -44,7 +44,7 @@ export class PlayComponent implements OnInit {
     this.setting$.subscribe(x =>{
 
       this.nbackCount = x.nBackCount;
-      this.questionCount = x.questionCount;
+      this.questionCount = Number(x.questionCount);
       this.isLetter = x.isLetter;
       this.isAudio = x.isAudio;
       this.isPlace = x.isPlace;
@@ -71,7 +71,7 @@ export class PlayComponent implements OnInit {
 
         this.currentQuestion = {
           letter: x.isLetter ? this.getRandomLetter() : "",
-          audio: "",
+          audio: x.isAudio ? this.speechNumber() : "",
           place: "",
           color: "",
           shape: Shape.Square
@@ -100,6 +100,10 @@ export class PlayComponent implements OnInit {
         continue;
       }
 
+      if((this.questionList[i].audio === this.questionList[i + this.nbackCount].audio) !== this.answerList[i].isAudio){
+        continue;
+      }
+
       this.correctAnswerCount++;
     }
 
@@ -110,4 +114,17 @@ export class PlayComponent implements OnInit {
     this.event.emit(this.correctAnswerCount);
   }
 
+  speechNumber(): string {
+    if(this.questionList.length >= this.questionCount + this.nbackCount){ return "";}
+
+    const uttr: SpeechSynthesisUtterance = new SpeechSynthesisUtterance();
+    uttr.text = Math.floor(Math.random() * 10).toString();
+    uttr.lang = "ja-JP";
+    uttr.rate = 1;
+    uttr.pitch = 1;
+    uttr.volume = 1;
+
+    window.speechSynthesis.speak(uttr);
+    return uttr.text;
+  };
 }
