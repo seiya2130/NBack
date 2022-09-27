@@ -5,6 +5,7 @@ import { Answer } from 'src/app/model/answer.model';
 import { Question } from 'src/app/model/question.model';
 import { Setting } from 'src/app/model/setting.model';
 import { Shape } from 'src/app/model/shape';
+import { Place } from '../../../../model/place';
 
 
 @Component({
@@ -40,6 +41,8 @@ export class PlayComponent implements OnInit {
 
   correctAnswerCount: number = 0;
 
+  place: typeof Place = Place;
+
   ngOnInit(): void {
 
     this.setting$.subscribe(x =>{
@@ -73,9 +76,9 @@ export class PlayComponent implements OnInit {
         this.currentQuestion = {
           letter: this.isLetter ? this.getRandomLetter() : "",
           audio: this.isAudio ? this.speechNumber() : "",
-          place: "",
+          place: this.isPlace? this.getPlace() : Place.Center,
           color: this.isColor ? this.getColor() : "black",
-          shape: this.isShape ? Shape.Triangle : this.getShape()
+          shape: this.isShape ? this.getShape() : Shape.Square
         };
 
         this.questionList.push(this.currentQuestion);
@@ -114,6 +117,11 @@ export class PlayComponent implements OnInit {
 
       if(this.isShape &&
         (this.questionList[i].shape === this.questionList[i + this.nbackCount].shape) !== this.answerList[i].isShape){
+        continue;
+      }
+
+      if(this.isPlace &&
+        (this.questionList[i].place === this.questionList[i + this.nbackCount].place) !== this.answerList[i].isPlace){
         continue;
       }
 
@@ -166,5 +174,23 @@ export class PlayComponent implements OnInit {
     const index = Math.floor(Math.random() * colorList.length);
 
     return colorList[index];
+  }
+
+  getPlace(): Place {
+    let placeList: Place[] = [
+      Place.UpperLeft,
+      Place.TopCenter,
+      Place.UpperRight,
+      Place.Left,
+      Place.Center,
+      Place.Right,
+      Place.BottomLeft,
+      Place.BottomCenter,
+      Place.BottomRight
+    ];
+
+    const index = Math.floor(Math.random() * placeList.length);
+
+    return placeList[index];
   }
 }

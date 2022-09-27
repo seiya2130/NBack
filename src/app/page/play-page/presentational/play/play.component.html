@@ -1,12 +1,25 @@
-<div [ngClass]="{
-  'default-block' : true,
-  'border-black' : this.currentQuestion.color === 'black',
-  'border-red' : this.currentQuestion.color === 'red',
-  'border-blue' : this.currentQuestion.color === 'blue',
-  'border-green' : this.currentQuestion.color === 'green',
-  'triangle' : this.currentQuestion.shape === 0,
-  'circle' : this.currentQuestion.shape === 2}">
-  <p>{{this.currentQuestion.letter}}</p>
+<div class="question-area">
+  <div [ngClass]="{
+    'question' : true,
+    'default-block' : true,
+    'border-black' : this.currentQuestion.color === 'black',
+    'border-red' : this.currentQuestion.color === 'red',
+    'border-blue' : this.currentQuestion.color === 'blue',
+    'border-green' : this.currentQuestion.color === 'green',
+    'triangle' : this.currentQuestion.shape === 0,
+    'circle' : this.currentQuestion.shape === 2,
+    'center' : this.currentQuestion.place === this.place.Center,
+    'upper-left': this.currentQuestion.place === this.place.UpperLeft,
+    'top-center': this.currentQuestion.place === this.place.TopCenter,
+    'upper-right': this.currentQuestion.place === this.place.UpperRight,
+    'left': this.currentQuestion.place === this.place.Left,
+    'right': this.currentQuestion.place === this.place.Right,
+    'bottom-left': this.currentQuestion.place === this.place.BottomLeft,
+    'bottom-cneter': this.currentQuestion.place === this.place.BottomCenter,
+    'bottom-right': this.currentQuestion.place === this.place.BottomRight
+  }">
+    <p>{{this.currentQuestion.letter}}</p>
+  </div>
 </div>
 <div>
   <mat-checkbox [(ngModel)]="this.currentAnswer.isLetter" [disabled]="this.isLetter === false">文字</mat-checkbox>
