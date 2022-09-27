@@ -51,3 +51,43 @@
 .center {
   bottom: -20em;
 }
+
+.upper-left {
+  bottom: 0em;
+  right: 20em;
+}
+
+.top-center {
+  bottom: 0em;
+  right: 0em;
+}
+
+.upper-right {
+  bottom: 0em;
+  right: -20em;
+}
+
+.left {
+  bottom: -20em;
+  right: 20em;
+}
+
+.right {
+  bottom: -20em;
+  right: -20em;
+}
+
+.bottom-left {
+  bottom: -40em;
+  right: 20em;
+}
+
+.bottom-center {
+  bottom: -40em;
+  right: 0em;
+}
+
+.bottom-right {
+  bottom: -40em;
+  right: -20em;
+}

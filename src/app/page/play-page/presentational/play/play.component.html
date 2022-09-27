@@ -8,7 +8,15 @@
     'border-green' : this.currentQuestion.color === 'green',
     'triangle' : this.currentQuestion.shape === 0,
     'circle' : this.currentQuestion.shape === 2,
-    'center' : true
+    'center' : this.currentQuestion.place === this.place.Center,
+    'upper-left': this.currentQuestion.place === this.place.UpperLeft,
+    'top-center': this.currentQuestion.place === this.place.TopCenter,
+    'upper-right': this.currentQuestion.place === this.place.UpperRight,
+    'left': this.currentQuestion.place === this.place.Left,
+    'right': this.currentQuestion.place === this.place.Right,
+    'bottom-left': this.currentQuestion.place === this.place.BottomLeft,
+    'bottom-cneter': this.currentQuestion.place === this.place.BottomCenter,
+    'bottom-right': this.currentQuestion.place === this.place.BottomRight
   }">
     <p>{{this.currentQuestion.letter}}</p>
   </div>
