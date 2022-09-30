@@ -25,10 +25,10 @@
   </div>
 </div>
 <div>
-  <mat-checkbox [(ngModel)]="this.currentAnswer.isLetter" [disabled]="this.isLetter === false">文字</mat-checkbox>
-  <mat-checkbox [(ngModel)]="this.currentAnswer.isAudio" [disabled]="this.isAudio === false">音声</mat-checkbox>
-  <mat-checkbox [(ngModel)]="this.currentAnswer.isPlace" [disabled]="this.isPlace === false">場所</mat-checkbox>
-  <mat-checkbox [(ngModel)]="this.currentAnswer.isColor" [disabled]="this.isColor === false">色</mat-checkbox>
-  <mat-checkbox [(ngModel)]="this.currentAnswer.isShape" [disabled]="this.isShape === false">形</mat-checkbox>
+  <mat-checkbox [(ngModel)]="this.currentAnswer.isLetter" [disabled]="!canAnswer || this.isLetter === false">文字</mat-checkbox>
+  <mat-checkbox [(ngModel)]="this.currentAnswer.isAudio" [disabled]="!canAnswer || this.isAudio === false">音声</mat-checkbox>
+  <mat-checkbox [(ngModel)]="this.currentAnswer.isPlace" [disabled]="!canAnswer || this.isPlace === false">場所</mat-checkbox>
+  <mat-checkbox [(ngModel)]="this.currentAnswer.isColor" [disabled]="!canAnswer || this.isColor === false">色</mat-checkbox>
+  <mat-checkbox [(ngModel)]="this.currentAnswer.isShape" [disabled]="!canAnswer || this.isShape === false">形</mat-checkbox>
 </div>
 
