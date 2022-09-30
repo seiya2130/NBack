@@ -42,6 +42,7 @@ export class PlayComponent implements OnInit {
   correctAnswerCount: number = 0;
 
   place: typeof Place = Place;
+  shape: typeof Shape = Shape;
 
   canAnswer: boolean = false;
   ngOnInit(): void {
