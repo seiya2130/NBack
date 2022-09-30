@@ -42,7 +42,9 @@ export class PlayComponent implements OnInit {
   correctAnswerCount: number = 0;
 
   place: typeof Place = Place;
+  shape: typeof Shape = Shape;
 
+  canAnswer: boolean = false;
   ngOnInit(): void {
 
     this.setting$.subscribe(x =>{
@@ -56,6 +58,8 @@ export class PlayComponent implements OnInit {
       this.isShape = x.isShape;
 
       const interval = setInterval(() =>{
+
+        this.canAnswer = this.questionList.length >= this.nbackCount;
 
         if(this.questionList.length >= this.questionCount + this.nbackCount){
           clearInterval(interval);
