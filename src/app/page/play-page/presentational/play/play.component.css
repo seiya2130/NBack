@@ -3,6 +3,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  color: white;
+  font-weight: bold;
 }
 
 .square {
@@ -13,27 +15,26 @@
   clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
   width: 500px;
   height: 500px;
-  background-color: mediumpurple;
 }
 
 .circle {
   border-radius: 50%;
 }
 
-.border-black {
-  border-color: black;
+.black {
+  background-color: black;
 }
 
-.border-red {
-  border-color: red;
+.red {
+  background-color: red;
 }
 
-.border-blue {
-  border-color: blue;
+.blue {
+  background-color: blue;
 }
 
-.border-green {
-  border-color: green;
+.green {
+  background-color: green;
 }
 
 .question {
@@ -90,4 +91,22 @@
 .bottom-right {
   bottom: -40em;
   right: -20em;
+}
+
+.fade-in-out {
+  animation-name: smooth-fadein-out;
+  animation-duration: 1.5s;
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes smooth-fadein-out {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
