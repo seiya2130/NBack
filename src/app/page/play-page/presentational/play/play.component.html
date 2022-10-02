@@ -1,8 +1,6 @@
-<div>
-  {{this.answerList.length}}/{{this.questionCount}}
-</div>
 <div class="question-area">
   <div [ngClass]="{
+    'fade-in-out' : true,
     'question' : true,
     'default-block' : true,
     'black' : this.currentQuestion.color === 'black',

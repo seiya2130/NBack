@@ -92,3 +92,17 @@
   bottom: -40em;
   right: -20em;
 }
+
+.fade-in-out{
+  animation-name: smooth-fadein-out;
+  animation-duration: 1.5s;
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes smooth-fadein-out {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
